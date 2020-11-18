@@ -1,22 +1,15 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { loadPopularGames } from './redux/actions/gameActions';
+import React from 'react';
+// Components & Pages
+import GlobalStyles from './components/GlobalStyles';
+import Home from './screens/Home';
 
 const App = () => {
-
-  const dispatch = useDispatch();
-  const { popular, error, loading } = useSelector(state => state.game);
-
-  useEffect(() => {
-    dispatch(loadPopularGames());
-  }, []);
-
-  return (
-    <div className="App">
-      <h1>hello ignite</h1>
-    </div>
-  );
-}
-
+	return (
+		<div className="App">
+			<GlobalStyles />
+			<Home />
+		</div>
+	);
+};
 
 export default App;
