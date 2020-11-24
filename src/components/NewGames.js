@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadUpcomingGames } from '../redux/actions/gameActions';
+import { loadNewGames } from '../redux/actions/gameActions';
 // Components
 import Message from './Message';
 import Spinner from './Spinner';
@@ -9,19 +9,19 @@ import Game from './Game';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-const UcomingGames = () => {
+const NewGames = () => {
 	const dispatch = useDispatch();
 
-	const { upcoming, loading, error } = useSelector((state) => state.game);
+	const { newGames, loading, error } = useSelector((state) => state.game);
 
 	useEffect(() => {
-		dispatch(loadUpcomingGames());
+		dispatch(loadNewGames());
 	}, [dispatch]);
 
 	return (
 		<GameList>
-			<h2>Upcoming Games</h2>
-			<Games>{error ? <Message>{error}</Message> : upcoming.map((game) => <Game game={game} />)}</Games>
+			<h2>New Games</h2>
+			<Games>{error ? <Message>{error}</Message> : newGames.map((game) => <Game game={game} />)}</Games>
 		</GameList>
 	);
 };
@@ -41,4 +41,4 @@ const Games = styled(motion.div)`
 	grid-row-gap: 5rem;
 `;
 
-export default UcomingGames;
+export default NewGames;

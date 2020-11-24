@@ -13,8 +13,11 @@ const Message = ({ children }) => {
 
 const MessageDiv = styled(motion.div)`
 	width: 100%;
+	height: 5rem;
 	padding: 2rem;
-	background-color: grey;
+	background-color: #cb6060;
+	border-radius: 27px;
+	color: #fff;
 	h4 {
 		font-size: 15px;
 		font-weight: bold;

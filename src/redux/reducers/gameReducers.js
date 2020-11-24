@@ -2,6 +2,7 @@ const initState = {
 	popular: [],
 	newGames: [],
 	upcoming: [],
+	searched: [],
 };
 
 export const gameReducers = (state = initState, action) => {
@@ -38,6 +39,32 @@ export const gameReducers = (state = initState, action) => {
 			return {
 				...state,
 				error: action.payload,
+			};
+		case 'FETCH_NEW_GAMES_REQUEST':
+			return {
+				...state,
+				loading: true,
+			};
+		case 'FETCH_NEW_GAMES_SUCCESS':
+			return {
+				...state,
+				loading: false,
+				newGames: action.payload,
+			};
+		case 'FETCH_NEW_GAMES_FAILED':
+			return {
+				...state,
+				error: action.payload,
+			};
+		case 'FERCH_GAME_SEARCH':
+			return {
+				...state,
+				searched: action.payload,
+			};
+		case 'CLEAR_SEARCHED':
+			return {
+				...state,
+				searched: [],
 			};
 		default:
 			return state;
